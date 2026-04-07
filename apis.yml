@@ -1,7 +1,12 @@
 aid: commscope-holding
-url: https://raw.githubusercontent.com/api-evangelist/commscope-holding/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/commscope-holding/refs/heads/main/apis.yml
 modified: '2026-03-23'
 apis: []
 common:
   - type: Website
     url: https://www.commscope-holding.com
+description: >-
+  CommScope is a global provider of infrastructure solutions for communications networks,
+  including fiber optic, coaxial, and copper cabling, antenna systems, and network
+  equipment.
