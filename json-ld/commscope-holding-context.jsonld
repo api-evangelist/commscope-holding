@@ -1,0 +1,88 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "ruckus": "https://ruckus.cloud/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Venue": {
+      "@id": "schema:Place",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "address": "schema:address"
+      }
+    },
+
+    "Network": {
+      "@id": "ruckus:WirelessNetwork",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "ssid": "ruckus:ssid",
+        "security": "ruckus:security",
+        "venueId": "ruckus:venueId"
+      }
+    },
+
+    "AccessPoint": {
+      "@id": "ruckus:AccessPoint",
+      "@context": {
+        "serialNumber": "@id",
+        "model": "schema:model",
+        "venueId": "ruckus:venueId",
+        "status": "ruckus:status"
+      }
+    },
+
+    "Switch": {
+      "@id": "ruckus:Switch",
+      "@context": {
+        "serialNumber": "@id",
+        "model": "schema:model",
+        "venueId": "ruckus:venueId",
+        "status": "ruckus:status"
+      }
+    },
+
+    "Client": {
+      "@id": "ruckus:Client",
+      "@context": {
+        "mac": "@id",
+        "ip": "ruckus:ipAddress",
+        "username": "schema:identifier",
+        "ssid": "ruckus:ssid",
+        "apSerialNumber": "ruckus:apSerialNumber",
+        "connectedAt": {
+          "@id": "ruckus:connectedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "MSPCustomer": {
+      "@id": "schema:Organization",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "tenantId": "ruckus:tenantId"
+      }
+    },
+
+    "Activity": {
+      "@id": "ruckus:Activity",
+      "@context": {
+        "requestId": "@id",
+        "status": "ruckus:status",
+        "startedAt": {
+          "@id": "ruckus:startedAt",
+          "@type": "xsd:dateTime"
+        },
+        "endedAt": {
+          "@id": "ruckus:endedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,381 @@
+openapi: 3.1.0
+info:
+  title: RUCKUS One API
+  description: >-
+    The RUCKUS One API is a JSON REST surface for managing CommScope's
+    cloud-managed networking estate, including Wi-Fi networks, ICX
+    switches, access points, venues, and managed-service-provider
+    delegation. Authentication uses an OAuth2-style client credentials
+    exchange: a tenant generates an API key in the RUCKUS One UI and
+    exchanges the resulting client_id and client_secret for a JSON Web
+    Token, which is then attached as a bearer token on subsequent
+    requests. Many write operations are asynchronous and return a
+    requestId; clients poll the activity service until SUCCESS. Read
+    operations are always synchronous.
+  version: '1.0'
+  contact:
+    name: RUCKUS Networks Developer Central
+    url: https://www.ruckusnetworks.com/developer-central/
+externalDocs:
+  description: RUCKUS One API documentation
+  url: https://docs.ruckus.cloud/api
+servers:
+  - url: https://api.ruckus.cloud
+    description: North America
+  - url: https://api.eu.ruckus.cloud
+    description: Europe
+  - url: https://api.asia.ruckus.cloud
+    description: Asia
+tags:
+  - name: Authentication
+    description: OAuth2 client-credentials token exchange.
+  - name: Activities
+    description: Track asynchronous request status.
+  - name: Venues
+    description: Physical sites that group networks and devices.
+  - name: Networks
+    description: Wi-Fi SSID and network configuration.
+  - name: AccessPoints
+    description: Wi-Fi access points (APs) registered to a tenant.
+  - name: Switches
+    description: ICX switches managed via RUCKUS One.
+  - name: Clients
+    description: Connected client devices.
+  - name: MSP
+    description: Managed-service-provider delegation and end-customer accounts.
+security:
+  - BearerAuth: []
+paths:
+  /oauth2/token:
+    post:
+      operationId: getAccessToken
+      summary: Exchange client credentials for an access token
+      description: >-
+        Exchange a tenant's API client_id and client_secret for a JSON
+        Web Token bearer credential.
+      tags:
+        - Authentication
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - grant_type
+                - client_id
+                - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  const: client_credentials
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+      responses:
+        '200':
+          description: Bearer token issued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+  /api/tenant/{tenantId}/activity/{requestId}:
+    get:
+      operationId: getActivity
+      summary: Get the status of an asynchronous request
+      description: >-
+        Poll the status of an asynchronous request returned by a write
+        operation.
+      tags:
+        - Activities
+      parameters:
+        - $ref: '#/components/parameters/tenantId'
+        - name: requestId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Activity status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+  /api/tenant/{tenantId}/venues:
+    get:
+      operationId: listVenues
+      summary: List venues
+      tags:
+        - Venues
+      parameters:
+        - $ref: '#/components/parameters/tenantId'
+      responses:
+        '200':
+          description: List of venues.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Venue'
+    post:
+      operationId: createVenue
+      summary: Create a venue
+      tags:
+        - Venues
+      parameters:
+        - $ref: '#/components/parameters/tenantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venue'
+      responses:
+        '202':
+          description: Asynchronous request accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncResponse'
+  /api/tenant/{tenantId}/networks:
+    get:
+      operationId: listNetworks
+      summary: List Wi-Fi networks
+      tags:
+        - Networks
+      parameters:
+        - $ref: '#/components/parameters/tenantId'
+      responses:
+        '200':
+          description: List of networks.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Network'
+    post:
+      operationId: createNetwork
+      summary: Create a Wi-Fi network
+      tags:
+        - Networks
+      parameters:
+        - $ref: '#/components/parameters/tenantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Network'
+      responses:
+        '202':
+          description: Asynchronous request accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncResponse'
+  /api/tenant/{tenantId}/aps:
+    get:
+      operationId: listAccessPoints
+      summary: List access points
+      tags:
+        - AccessPoints
+      parameters:
+        - $ref: '#/components/parameters/tenantId'
+      responses:
+        '200':
+          description: List of access points.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccessPoint'
+  /api/tenant/{tenantId}/switches:
+    get:
+      operationId: listSwitches
+      summary: List ICX switches
+      tags:
+        - Switches
+      parameters:
+        - $ref: '#/components/parameters/tenantId'
+      responses:
+        '200':
+          description: List of switches.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Switch'
+  /api/tenant/{tenantId}/clients:
+    get:
+      operationId: listClients
+      summary: List connected clients
+      tags:
+        - Clients
+      parameters:
+        - $ref: '#/components/parameters/tenantId'
+      responses:
+        '200':
+          description: List of connected clients.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Client'
+  /api/msp/{mspId}/customers:
+    get:
+      operationId: listMSPCustomers
+      summary: List MSP customers
+      tags:
+        - MSP
+      parameters:
+        - name: mspId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of delegated end-customer accounts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MSPCustomer'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    tenantId:
+      name: tenantId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    AccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          example: Bearer
+        expires_in:
+          type: integer
+    AsyncResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: Identifier used to poll the activity service for completion.
+    Activity:
+      type: object
+      properties:
+        requestId:
+          type: string
+        status:
+          type: string
+          enum: [PENDING, IN_PROGRESS, SUCCESS, FAILURE]
+        startedAt:
+          type: string
+          format: date-time
+        endedAt:
+          type: string
+          format: date-time
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        address:
+          type: object
+          properties:
+            line1: { type: string }
+            city: { type: string }
+            country: { type: string }
+            postalCode: { type: string }
+    Network:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        ssid:
+          type: string
+        security:
+          type: string
+          enum: [open, wpa2, wpa3, wpa2wpa3, dpsk]
+        venueId:
+          type: string
+          format: uuid
+    AccessPoint:
+      type: object
+      properties:
+        serialNumber:
+          type: string
+        model:
+          type: string
+        venueId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [online, offline, provisioning]
+    Switch:
+      type: object
+      properties:
+        serialNumber:
+          type: string
+        model:
+          type: string
+        venueId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [online, offline, provisioning]
+    Client:
+      type: object
+      properties:
+        mac:
+          type: string
+        ip:
+          type: string
+        username:
+          type: string
+        ssid:
+          type: string
+        apSerialNumber:
+          type: string
+        connectedAt:
+          type: string
+          format: date-time
+    MSPCustomer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        tenantId:
+          type: string
+          format: uuid

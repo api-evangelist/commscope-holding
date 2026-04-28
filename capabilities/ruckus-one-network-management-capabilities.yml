@@ -1,0 +1,113 @@
+# Naftiko capabilities profile for the RUCKUS One API (CommScope).
+# Capabilities reflect the surface most teams need to programmatically
+# manage cloud-managed Wi-Fi networks, ICX switches, and MSP delegation.
+provider: commscope-holding
+name: RUCKUS One Network Management
+description: >-
+  Cloud-managed networking API for RUCKUS One: provision Wi-Fi networks
+  and venues, register access points and ICX switches, monitor connected
+  clients, and orchestrate managed-service-provider delegation. Many
+  write operations are asynchronous (HTTP 202) and require polling the
+  activity service.
+capabilities:
+  - id: ruckus.auth.token
+    name: Obtain access token
+    description: Exchange client_id/client_secret for a JWT bearer token.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - client_id
+      - client_secret
+      - grant_type=client_credentials
+    outputs:
+      - access_token
+      - expires_in
+
+  - id: ruckus.activity.poll
+    name: Poll asynchronous request
+    description: Poll the activity service until an async write reaches SUCCESS.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - tenantId
+      - requestId
+    outputs:
+      - status
+      - startedAt
+      - endedAt
+
+  - id: ruckus.venue.list
+    name: List venues
+    description: List physical venues registered to the tenant.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - tenantId
+    outputs:
+      - venues
+
+  - id: ruckus.venue.create
+    name: Create venue
+    description: Create a venue used to group networks and devices.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - tenantId
+      - name
+      - address
+    outputs:
+      - requestId
+
+  - id: ruckus.network.list
+    name: List Wi-Fi networks
+    description: List Wi-Fi networks (SSIDs) configured for the tenant.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - tenantId
+    outputs:
+      - networks
+
+  - id: ruckus.network.create
+    name: Create Wi-Fi network
+    description: Provision a new SSID with security mode and VLAN.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - tenantId
+      - name
+      - ssid
+      - security
+      - venueId
+    outputs:
+      - requestId
+
+  - id: ruckus.ap.list
+    name: List access points
+    description: List access points registered to the tenant.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - tenantId
+    outputs:
+      - accessPoints
+
+  - id: ruckus.switch.list
+    name: List ICX switches
+    description: List ICX switches managed via RUCKUS One.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - tenantId
+    outputs:
+      - switches
+
+  - id: ruckus.client.list
+    name: List connected clients
+    description: List devices currently associated to APs.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - tenantId
+    outputs:
+      - clients
+
+  - id: ruckus.msp.customers
+    name: List MSP customers
+    description: List delegated end-customer accounts under an MSP.
+    api: commscope-holding:ruckus-one-api
+    inputs:
+      - mspId
+    outputs:
+      - customers

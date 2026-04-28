@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/commscope-holding/refs/heads/main/json-schema/ruckus-one-network-schema.json",
+  "title": "RUCKUS One Network",
+  "description": "Schema for a Wi-Fi network resource in the RUCKUS One API.",
+  "type": "object",
+  "required": ["name", "ssid"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "RUCKUS One-assigned network UID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name for the network."
+    },
+    "ssid": {
+      "type": "string",
+      "description": "Service set identifier broadcast by APs."
+    },
+    "security": {
+      "type": "string",
+      "enum": ["open", "wpa2", "wpa3", "wpa2wpa3", "dpsk"],
+      "description": "Security mode for the network."
+    },
+    "venueId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UID of the venue this network belongs to."
+    },
+    "vlanId": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4094,
+      "description": "Optional VLAN tag."
+    }
+  }
+}
