@@ -1,171 +1,75 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: CommScope Holding
+providerId: commscope-holding
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - FinOps
+  - FOCUS
+  - Networking
+  - Hardware
+description: 'FOCUS-aligned FinOps for CommScope Holding: hardware (CapEx) plus product-line subscriptions
+  (RUCKUS Cloud) sold through channel partners. No public consumption-metered API surface at the holding
+  level.'
+sources:
+  - https://www.commscope.com/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: CommScope Holding
-providerId: commscope-holding
-publisherName: CommScope Holding
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Access Points
-  - Cabling
-  - Connectivity
-  - ICX Switches
-  - Infrastructure
-  - Networking
-  - RUCKUS
-  - Wi-Fi
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the CommScope Holding API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: CommScope, Inc.
+serviceCategory: Networking
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Hardware + Subscription
+  billingFrequency: Per-Invoice
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
     - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
+    - Refund
 focusColumns:
-  ServiceName: CommScope Holding
-  ServiceCategory: Developer Tools / API
-  ProviderName: CommScope Holding
-  PublisherName: CommScope Holding
-  InvoiceIssuerName: CommScope Holding
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceName: CommScope
+  ServiceCategory: Networking
+  ProviderName: CommScope
+  PublisherName: CommScope, Inc.
+  InvoiceIssuerName: CommScope, Inc.
   BillingCurrency: USD
-  ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: hardware_units
+    unit: unit
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
+      - product_family
+      - sku
+  - name: ruckus_cloud_subscription
+    unit: ap-month
+    aggregation: sum
+    dimensions:
       - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+  - name: support_subscription
+    unit: month
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
+      - device
       - tier
-apis:
-  - name: RUCKUS One API
-    baseURL: https://api.ruckus.cloud
-    tags:
-      - Access Points
-      - Cloud Management
-      - ICX Switches
-      - Networking
-      - REST
-      - RUCKUS
-      - Wi-Fi
-    serviceName: RUCKUS One API
-    serviceCategory: API
-  - name: RUCKUS SmartZone Public API
-    baseURL: ''
-    tags:
-      - Controllers
-      - Networking
-      - REST
-      - RUCKUS
-      - SmartZone
-      - Wi-Fi
-    serviceName: RUCKUS SmartZone Public API
-    serviceCategory: API
-  - name: RUCKUS ICX RESTCONF API
-    baseURL: ''
-    tags:
-      - ICX
-      - Networking
-      - RESTCONF
-      - RUCKUS
-      - Switches
-      - YANG
-    serviceName: RUCKUS ICX RESTCONF API
-    serviceCategory: API
-  - name: RUCKUS IoT Platform API
-    baseURL: ''
-    tags:
-      - Controllers
-      - IoT
-      - Networking
-      - REST
-      - RUCKUS
-    serviceName: RUCKUS IoT Platform API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+principles:
+  - name: Visibility
+    description: Reconcile partner invoices to product SKUs and AP/device serial numbers; pull subscription
+      data from RUCKUS Cloud / RUCKUS One dashboards.
+  - name: Allocation
+    description: Tag hardware to site and product-line subscriptions to tenant/site.
+  - name: Optimization
+    description: Consolidate AP licenses where deployments shrink; align hardware refresh cycles with
+      depreciation schedule.
+  - name: Accountability
+    description: Network engineering owns AP fleet; finance owns CapEx vs subscription mix.
+notes: No public corporate API consumption pricing.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

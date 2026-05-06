@@ -4,104 +4,31 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: CommScope Holding
 providerId: commscope-holding
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - Access Points
-  - Cabling
-  - Connectivity
-  - ICX Switches
-  - Infrastructure
-  - Networking
-  - RUCKUS
-  - Wi-Fi
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the CommScope Holding API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - Networking
+  - Hardware
+description: CommScope (corporate) does not publish a public API rate-limit reference. Product-line APIs
+  (e.g. RUCKUS Cloud, RUCKUS One) define their own throttling within product documentation, but no consolidated
+  developer portal or public price-driven tiering exists at the holding-company level.
+sources:
+  - https://www.commscope.com/
+notes: No public corporate API; product-line APIs document their own limits separately.
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - RUCKUS One API
-      - RUCKUS SmartZone Public API
-      - RUCKUS ICX RESTCONF API
-      - RUCKUS IoT Platform API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - RUCKUS One API
-      - RUCKUS SmartZone Public API
-      - RUCKUS ICX RESTCONF API
-      - RUCKUS IoT Platform API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - RUCKUS One API
-      - RUCKUS SmartZone Public API
-      - RUCKUS ICX RESTCONF API
-      - RUCKUS IoT Platform API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - RUCKUS One API
-      - RUCKUS SmartZone Public API
-      - RUCKUS ICX RESTCONF API
-      - RUCKUS IoT Platform API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - RUCKUS One API
-      - RUCKUS SmartZone Public API
-      - RUCKUS ICX RESTCONF API
-      - RUCKUS IoT Platform API
+  - name: Product-line APIs (varies)
+    scope: account
+    metric: varies
+    limit: see product-specific documentation
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Backoff
+    description: Use exponential backoff with jitter on 429/503 across any product-line API.
+  - name: Per-product
+    description: Rate limits, when documented, live with each product line (RUCKUS Cloud, etc.) — not
+      at the holding-company level.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
