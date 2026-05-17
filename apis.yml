@@ -14,7 +14,7 @@ tags:
 type: Index
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
-x-type: company
+kind: company
 created: '2025-01-15'
 modified: '2026-04-26'
 position: Consumer
@@ -179,7 +179,7 @@ common:
   - type: Privacy
     url: https://www.commscope.com/privacy-statement/
   - url: json-ld/commscope-holding-context.jsonld
-    type: JSON-LD
+    type: JSONLD
   - url: json-schema/ruckus-one-network-schema.json
     type: JSONSchema
   - url: rules/commscope-holding-rules.yml
