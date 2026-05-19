@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: RUCKUS One API — MSP
+  description: 'RUCKUS One API — MSP. 1 operations. Lead operation: List MSP customers. Self-contained Naftiko capability
+    covering one Commscope Holding business surface.'
+  tags:
+  - Commscope Holding
+  - MSP
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    COMMSCOPE_HOLDING_API_KEY: COMMSCOPE_HOLDING_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ruckus-one-msp
+    baseUri: https://api.ruckus.cloud
+    description: RUCKUS One API — MSP business capability. Self-contained, no shared references.
+    resources:
+    - name: api-msp-mspId-customers
+      path: /api/msp/{mspId}/customers
+      operations:
+      - name: listmspcustomers
+        method: GET
+        description: List MSP customers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mspId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.COMMSCOPE_HOLDING_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: ruckus-one-msp-rest
+    port: 8080
+    description: REST adapter for RUCKUS One API — MSP. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/msp/{mspid}/customers
+      name: api-msp-mspid-customers
+      description: REST surface for api-msp-mspId-customers.
+      operations:
+      - method: GET
+        name: listmspcustomers
+        description: List MSP customers
+        call: ruckus-one-msp.listmspcustomers
+        with:
+          mspId: rest.mspId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ruckus-one-msp-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for RUCKUS One API — MSP. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-msp-customers
+      description: List MSP customers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ruckus-one-msp.listmspcustomers
+      with:
+        mspId: tools.mspId
+      outputParameters:
+      - type: object
+        mapping: $.

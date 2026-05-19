@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: RUCKUS One API — Clients
+  description: 'RUCKUS One API — Clients. 1 operations. Lead operation: List connected clients. Self-contained Naftiko capability
+    covering one Commscope Holding business surface.'
+  tags:
+  - Commscope Holding
+  - Clients
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    COMMSCOPE_HOLDING_API_KEY: COMMSCOPE_HOLDING_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ruckus-one-clients
+    baseUri: https://api.ruckus.cloud
+    description: RUCKUS One API — Clients business capability. Self-contained, no shared references.
+    resources:
+    - name: api-tenant-tenantId-clients
+      path: /api/tenant/{tenantId}/clients
+      operations:
+      - name: listclients
+        method: GET
+        description: List connected clients
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.COMMSCOPE_HOLDING_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: ruckus-one-clients-rest
+    port: 8080
+    description: REST adapter for RUCKUS One API — Clients. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/tenant/{tenantid}/clients
+      name: api-tenant-tenantid-clients
+      description: REST surface for api-tenant-tenantId-clients.
+      operations:
+      - method: GET
+        name: listclients
+        description: List connected clients
+        call: ruckus-one-clients.listclients
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ruckus-one-clients-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for RUCKUS One API — Clients. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-connected-clients
+      description: List connected clients
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ruckus-one-clients.listclients
+      outputParameters:
+      - type: object
+        mapping: $.
