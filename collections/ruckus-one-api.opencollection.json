@@ -1,0 +1,283 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RUCKUS One API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exchange client credentials for an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ruckus.cloud/oauth2/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Exchange a tenant's API client_id and client_secret for a JSON Web Token bearer credential."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the status of an asynchronous request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/activity/:requestId",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Poll the status of an asynchronous request returned by a write operation."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Venues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List venues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/venues",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List venues"
+        },
+        {
+          "info": {
+            "name": "Create a venue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/venues",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a venue"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Wi-Fi networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/networks",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Wi-Fi networks"
+        },
+        {
+          "info": {
+            "name": "Create a Wi-Fi network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/networks",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Wi-Fi network"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "AccessPoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List access points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/aps",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List access points"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Switches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ICX switches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/switches",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List ICX switches"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Clients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List connected clients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/clients",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List connected clients"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MSP",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List MSP customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/msp/:mspId/customers",
+            "params": [
+              {
+                "name": "mspId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List MSP customers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
