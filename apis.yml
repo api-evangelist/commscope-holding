@@ -12,7 +12,7 @@ tags:
   - Wi-Fi
   - Fortune 1000
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 kind: company
 created: '2025-01-15'
@@ -36,7 +36,7 @@ apis:
       - REST
       - RUCKUS
       - Wi-Fi
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.ruckus.cloud
     humanURL: https://docs.ruckus.cloud/api
     properties:
@@ -81,7 +81,7 @@ apis:
       - RUCKUS
       - SmartZone
       - Wi-Fi
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.commscope.com/
     properties:
       - url: https://docs.commscope.com/
@@ -109,7 +109,7 @@ apis:
       - RUCKUS
       - Switches
       - YANG
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.ruckusnetworks.com/developer-central/
     properties:
       - url: https://www.ruckusnetworks.com/developer-central/
@@ -133,7 +133,7 @@ apis:
       - Networking
       - REST
       - RUCKUS
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.ruckusnetworks.com/developer-central/
     properties:
       - url: https://www.ruckusnetworks.com/developer-central/
