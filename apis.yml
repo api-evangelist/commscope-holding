@@ -150,6 +150,10 @@ apis:
       - Policy and rule automation across IoT estates
       - Telemetry collection from environmental and asset sensors
 common:
+  - type: DomainSecurity
+    url: security/commscope-holding-domain-security.yml
+  - type: Authentication
+    url: authentication/commscope-holding-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/commscope
   - type: Website
@@ -174,6 +178,8 @@ common:
     type: JSONSchema
   - url: rules/commscope-holding-rules.yml
     type: Spectral
+  - url: https://www.commscope.com/blog/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

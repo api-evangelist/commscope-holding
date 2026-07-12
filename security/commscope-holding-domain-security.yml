@@ -1,0 +1,35 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.commscope.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  5 01:24:02 2026 GMT
+  hsts: false
+- host: docs.ruckus.cloud
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 25 10:02:31 2026 GMT
+  hsts: false
+- host: api.ruckus.cloud
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  1 19:30:43 2026 GMT
+  hsts: null
+domains:
+- domain: commscope.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: ruckus.cloud
+  dnssec: true
+  caa:
+  - 0 issue "entrust.net"
+  - 0 issue "digicert.com"
+  - 0 issue "pki.goog"
+  - 0 issue "letsencrypt.org"
+  spf: false
+  dmarc: false
