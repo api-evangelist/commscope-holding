@@ -150,6 +150,8 @@ apis:
       - Policy and rule automation across IoT estates
       - Telemetry collection from environmental and asset sensors
 common:
+  - type: AgenticAccess
+    url: agentic-access/commscope-holding-agentic-access.yml
   - type: DomainSecurity
     url: security/commscope-holding-domain-security.yml
   - type: Authentication
