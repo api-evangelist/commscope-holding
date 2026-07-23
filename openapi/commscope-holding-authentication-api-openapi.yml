@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: RUCKUS One AccessPoints Authentication API
+  description: 'The RUCKUS One API is a JSON REST surface for managing CommScope''s cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.'
+  version: '1.0'
+  contact:
+    name: RUCKUS Networks Developer Central
+    url: https://www.ruckusnetworks.com/developer-central/
+servers:
+- url: https://api.ruckus.cloud
+  description: North America
+- url: https://api.eu.ruckus.cloud
+  description: Europe
+- url: https://api.asia.ruckus.cloud
+  description: Asia
+security:
+- BearerAuth: []
+tags:
+- name: Authentication
+  description: OAuth2 client-credentials token exchange.
+paths:
+  /oauth2/token:
+    post:
+      operationId: getAccessToken
+      summary: Exchange client credentials for an access token
+      description: Exchange a tenant's API client_id and client_secret for a JSON Web Token bearer credential.
+      tags:
+      - Authentication
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  const: client_credentials
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+      responses:
+        '200':
+          description: Bearer token issued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+components:
+  schemas:
+    AccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          example: Bearer
+        expires_in:
+          type: integer
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: RUCKUS One API documentation
+  url: https://docs.ruckus.cloud/api

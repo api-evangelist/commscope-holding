@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: RUCKUS One AccessPoints Activities API
+  description: 'The RUCKUS One API is a JSON REST surface for managing CommScope''s cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.'
+  version: '1.0'
+  contact:
+    name: RUCKUS Networks Developer Central
+    url: https://www.ruckusnetworks.com/developer-central/
+servers:
+- url: https://api.ruckus.cloud
+  description: North America
+- url: https://api.eu.ruckus.cloud
+  description: Europe
+- url: https://api.asia.ruckus.cloud
+  description: Asia
+security:
+- BearerAuth: []
+tags:
+- name: Activities
+  description: Track asynchronous request status.
+paths:
+  /api/tenant/{tenantId}/activity/{requestId}:
+    get:
+      operationId: getActivity
+      summary: Get the status of an asynchronous request
+      description: Poll the status of an asynchronous request returned by a write operation.
+      tags:
+      - Activities
+      parameters:
+      - $ref: '#/components/parameters/tenantId'
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Activity status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+components:
+  schemas:
+    Activity:
+      type: object
+      properties:
+        requestId:
+          type: string
+        status:
+          type: string
+          enum:
+          - PENDING
+          - IN_PROGRESS
+          - SUCCESS
+          - FAILURE
+        startedAt:
+          type: string
+          format: date-time
+        endedAt:
+          type: string
+          format: date-time
+  parameters:
+    tenantId:
+      name: tenantId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: RUCKUS One API documentation
+  url: https://docs.ruckus.cloud/api

@@ -1,0 +1,103 @@
+openapi: 3.1.0
+info:
+  title: RUCKUS One AccessPoints Networks API
+  description: 'The RUCKUS One API is a JSON REST surface for managing CommScope''s cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.'
+  version: '1.0'
+  contact:
+    name: RUCKUS Networks Developer Central
+    url: https://www.ruckusnetworks.com/developer-central/
+servers:
+- url: https://api.ruckus.cloud
+  description: North America
+- url: https://api.eu.ruckus.cloud
+  description: Europe
+- url: https://api.asia.ruckus.cloud
+  description: Asia
+security:
+- BearerAuth: []
+tags:
+- name: Networks
+  description: Wi-Fi SSID and network configuration.
+paths:
+  /api/tenant/{tenantId}/networks:
+    get:
+      operationId: listNetworks
+      summary: List Wi-Fi networks
+      tags:
+      - Networks
+      parameters:
+      - $ref: '#/components/parameters/tenantId'
+      responses:
+        '200':
+          description: List of networks.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Network'
+    post:
+      operationId: createNetwork
+      summary: Create a Wi-Fi network
+      tags:
+      - Networks
+      parameters:
+      - $ref: '#/components/parameters/tenantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Network'
+      responses:
+        '202':
+          description: Asynchronous request accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncResponse'
+components:
+  schemas:
+    Network:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        ssid:
+          type: string
+        security:
+          type: string
+          enum:
+          - open
+          - wpa2
+          - wpa3
+          - wpa2wpa3
+          - dpsk
+        venueId:
+          type: string
+          format: uuid
+    AsyncResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: Identifier used to poll the activity service for completion.
+  parameters:
+    tenantId:
+      name: tenantId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: RUCKUS One API documentation
+  url: https://docs.ruckus.cloud/api

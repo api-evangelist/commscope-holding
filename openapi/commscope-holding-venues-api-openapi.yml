@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: RUCKUS One AccessPoints Venues API
+  description: 'The RUCKUS One API is a JSON REST surface for managing CommScope''s cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.'
+  version: '1.0'
+  contact:
+    name: RUCKUS Networks Developer Central
+    url: https://www.ruckusnetworks.com/developer-central/
+servers:
+- url: https://api.ruckus.cloud
+  description: North America
+- url: https://api.eu.ruckus.cloud
+  description: Europe
+- url: https://api.asia.ruckus.cloud
+  description: Asia
+security:
+- BearerAuth: []
+tags:
+- name: Venues
+  description: Physical sites that group networks and devices.
+paths:
+  /api/tenant/{tenantId}/venues:
+    get:
+      operationId: listVenues
+      summary: List venues
+      tags:
+      - Venues
+      parameters:
+      - $ref: '#/components/parameters/tenantId'
+      responses:
+        '200':
+          description: List of venues.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Venue'
+    post:
+      operationId: createVenue
+      summary: Create a venue
+      tags:
+      - Venues
+      parameters:
+      - $ref: '#/components/parameters/tenantId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venue'
+      responses:
+        '202':
+          description: Asynchronous request accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncResponse'
+components:
+  schemas:
+    AsyncResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: Identifier used to poll the activity service for completion.
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        address:
+          type: object
+          properties:
+            line1:
+              type: string
+            city:
+              type: string
+            country:
+              type: string
+            postalCode:
+              type: string
+  parameters:
+    tenantId:
+      name: tenantId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: RUCKUS One API documentation
+  url: https://docs.ruckus.cloud/api
