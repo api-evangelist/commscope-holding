@@ -12,7 +12,20 @@ tags:
   - Wi-Fi
   - Fortune 1000
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/commscope-holding.png
 access: 3rd-Party
 kind: company
 created: '2025-01-15'
@@ -26,129 +39,227 @@ description: >-
   (RUCKUS Cloud, RUCKUS IoT, ICX RESTCONF, SmartZone, Cloudpath, Unleashed Multi- Site Manager, SmartCell Insight) ship
   their own REST/RESTCONF APIs and are documented through the CommScope and RUCKUS Networks developer centers.
 apis:
-  - aid: commscope-holding:ruckus-one-api
-    name: RUCKUS One API
-    tags:
-      - Access Points
-      - Cloud Management
-      - ICX Switches
-      - Networking
-      - REST
-      - RUCKUS
-      - Wi-Fi
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.ruckus.cloud
-    humanURL: https://docs.ruckus.cloud/api
-    properties:
-      - url: https://docs.ruckus.cloud/api
-        type: Documentation
-      - url: https://www.ruckusnetworks.com/developer-central/
-        type: DeveloperCentral
-      - url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
-        type: PostmanCollection
-      - url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
-        type: PostmanCollectionCloud
-      - url: openapi/ruckus-one-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      JSON REST API for the RUCKUS One cloud-managed networking platform. Hosted on three regional bases
-      (api.ruckus.cloud, api.eu.ruckus.cloud, api.asia.ruckus.cloud). Authentication is OAuth2 client credentials: a
-      tenant generates an API key in the RUCKUS One UI and exchanges client_id/client_secret for a JSON Web Token bearer
-      credential. Many write operations are asynchronous and return a requestId; the caller polls the activity service
-      until SUCCESS. Supports venues, Wi-Fi networks (SSIDs), access points, ICX switches, connected clients, DPSK
-      pools, resident portals, and MSP delegation.
-    x-features:
-      - OAuth2 client-credentials JWT bearer authentication
-      - Three regional production hosts (NA, EU, Asia)
-      - Asynchronous writes via 202 + activity polling
-      - Synchronous reads
-      - Venues, networks, APs, switches, clients
-      - DPSK pools and Dynamic PSK passphrases
-      - Resident portals and MSP delegation
-      - Postman collections published on GitHub
-    x-use-cases:
-      - Automating Wi-Fi rollouts across multi-tenant venues
-      - Bulk SSID and VLAN provisioning
-      - MSP partner orchestration of end-customer networks
-      - Client telemetry and session monitoring pipelines
-      - DPSK lifecycle automation for hospitality and multi-dwelling deployments
-  - aid: commscope-holding:smartzone-public-api
-    name: RUCKUS SmartZone Public API
-    tags:
-      - Controllers
-      - Networking
-      - REST
-      - RUCKUS
-      - SmartZone
-      - Wi-Fi
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.commscope.com/
-    properties:
-      - url: https://docs.commscope.com/
-        type: Documentation
-      - url: https://www.ruckusnetworks.com/developer-central/
-        type: DeveloperCentral
-    description: >-
-      REST and OpenAPI surface for managing on-premises SmartZone controllers (SZ144, SZ300, vSZ-E, vSZ-H) and ICX
-      Management. Used to integrate SmartZone with NMS, monitoring, and provisioning pipelines. Authentication and base
-      URL are tenant-specific to the controller deployment.
-    x-features:
-      - REST API and OpenAPI documents per SmartZone release
-      - WISPr and MQTT companion APIs
-      - Covers vSZ-E, vSZ-H, SZ144, SZ300, ICX Management
-    x-use-cases:
-      - On-premises SmartZone monitoring and provisioning automation
-      - NMS and observability pipelines
-      - Integrating SmartZone with ITSM/ticketing systems
-  - aid: commscope-holding:icx-restconf-api
-    name: RUCKUS ICX RESTCONF API
-    tags:
-      - ICX
-      - Networking
-      - RESTCONF
-      - RUCKUS
-      - Switches
-      - YANG
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.ruckusnetworks.com/developer-central/
-    properties:
-      - url: https://www.ruckusnetworks.com/developer-central/
-        type: Documentation
-    description: >-
-      RESTCONF API for ICX switches running FastIron 09.0.10/10.0.20 (GA). Models are YANG-based and follow standard
-      RESTCONF semantics. Covers ICX 7150, 7250, 7450, 7550, 7650, 7850, 8200.
-    x-features:
-      - YANG/RESTCONF compliant
-      - Per-device authentication
-      - Covers ICX 7150 through 8200 platforms
-    x-use-cases:
-      - Direct programmatic switch configuration
-      - Network state telemetry collection
-      - Device-level automation for campus deployments
-  - aid: commscope-holding:ruckus-iot-api
-    name: RUCKUS IoT Platform API
-    tags:
-      - Controllers
-      - IoT
-      - Networking
-      - REST
-      - RUCKUS
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.ruckusnetworks.com/developer-central/
-    properties:
-      - url: https://www.ruckusnetworks.com/developer-central/
-        type: Documentation
-    description: >-
-      REST API (v2.2) for the RUCKUS IoT Platform Controller. Manages the IoT controller, IoT-enabled access points, and
-      downstream devices and sensors.
-    x-features:
-      - REST surface for IoT Controller, APs, and sensors
-      - Device lifecycle and policy management
-      - Companion controller SDK
-    x-use-cases:
-      - Managing IoT-enabled APs and downstream sensors
-      - Policy and rule automation across IoT estates
-      - Telemetry collection from environmental and asset sensors
+- aid: commscope-holding:smartzone-public-api
+  name: RUCKUS SmartZone Public API
+  tags:
+  - Controllers
+  - Networking
+  - REST
+  - RUCKUS
+  - SmartZone
+  - Wi-Fi
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.commscope.com/
+  properties:
+  - url: https://docs.commscope.com/
+    type: Documentation
+  - url: https://www.ruckusnetworks.com/developer-central/
+    type: DeveloperCentral
+  description: >-
+    REST and OpenAPI surface for managing on-premises SmartZone controllers (SZ144, SZ300, vSZ-E, vSZ-H)
+    and ICX Management. Used to integrate SmartZone with NMS, monitoring, and provisioning pipelines.
+    Authentication and base URL are tenant-specific to the controller deployment.
+  x-features:
+  - REST API and OpenAPI documents per SmartZone release
+  - WISPr and MQTT companion APIs
+  - Covers vSZ-E, vSZ-H, SZ144, SZ300, ICX Management
+  x-use-cases:
+  - On-premises SmartZone monitoring and provisioning automation
+  - NMS and observability pipelines
+  - Integrating SmartZone with ITSM/ticketing systems
+- aid: commscope-holding:icx-restconf-api
+  name: RUCKUS ICX RESTCONF API
+  tags:
+  - ICX
+  - Networking
+  - RESTCONF
+  - RUCKUS
+  - Switches
+  - YANG
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.ruckusnetworks.com/developer-central/
+  properties:
+  - url: https://www.ruckusnetworks.com/developer-central/
+    type: Documentation
+  description: >-
+    RESTCONF API for ICX switches running FastIron 09.0.10/10.0.20 (GA). Models are YANG-based and follow
+    standard RESTCONF semantics. Covers ICX 7150, 7250, 7450, 7550, 7650, 7850, 8200.
+  x-features:
+  - YANG/RESTCONF compliant
+  - Per-device authentication
+  - Covers ICX 7150 through 8200 platforms
+  x-use-cases:
+  - Direct programmatic switch configuration
+  - Network state telemetry collection
+  - Device-level automation for campus deployments
+- aid: commscope-holding:ruckus-iot-api
+  name: RUCKUS IoT Platform API
+  tags:
+  - Controllers
+  - IoT
+  - Networking
+  - REST
+  - RUCKUS
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.ruckusnetworks.com/developer-central/
+  properties:
+  - url: https://www.ruckusnetworks.com/developer-central/
+    type: Documentation
+  description: >-
+    REST API (v2.2) for the RUCKUS IoT Platform Controller. Manages the IoT controller, IoT-enabled access
+    points, and downstream devices and sensors.
+  x-features:
+  - REST surface for IoT Controller, APs, and sensors
+  - Device lifecycle and policy management
+  - Companion controller SDK
+  x-use-cases:
+  - Managing IoT-enabled APs and downstream sensors
+  - Policy and rule automation across IoT estates
+  - Telemetry collection from environmental and asset sensors
+- aid: commscope-holding:commscope-holding-accesspoints-api
+  name: CommScope Holding AccessPoints API
+  description: Wi-Fi access points (APs) registered to a tenant.
+  humanURL: https://docs.ruckus.cloud/api
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - AccessPoints
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-accesspoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
+- aid: commscope-holding:commscope-holding-activities-api
+  name: CommScope Holding Activities API
+  description: Track asynchronous request status.
+  humanURL: https://docs.ruckus.cloud/api
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-activities-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
+- aid: commscope-holding:commscope-holding-authentication-api
+  name: CommScope Holding Authentication API
+  description: OAuth2 client-credentials token exchange.
+  humanURL: https://docs.ruckus.cloud/api
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
+- aid: commscope-holding:commscope-holding-clients-api
+  name: CommScope Holding Clients API
+  description: Connected client devices.
+  humanURL: https://docs.ruckus.cloud/api
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - Clients
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-clients-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
+- aid: commscope-holding:commscope-holding-msp-api
+  name: CommScope Holding MSP API
+  description: Managed-service-provider delegation and end-customer accounts.
+  humanURL: https://docs.ruckus.cloud/api
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - MSP
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-msp-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
+- aid: commscope-holding:commscope-holding-networks-api
+  name: CommScope Holding Networks API
+  description: Wi-Fi SSID and network configuration.
+  humanURL: https://docs.ruckus.cloud/api
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - Networks
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-networks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
+- aid: commscope-holding:commscope-holding-switches-api
+  name: CommScope Holding Switches API
+  description: ICX switches managed via RUCKUS One.
+  humanURL: https://docs.ruckus.cloud/api
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - Switches
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-switches-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
+- aid: commscope-holding:commscope-holding-venues-api
+  name: CommScope Holding Venues API
+  description: Physical sites that group networks and devices.
+  humanURL: https://docs.ruckus.cloud/api
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - Venues
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-venues-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
 common:
   - type: AgenticAccess
     url: agentic-access/commscope-holding-agentic-access.yml
