@@ -1,0 +1,28 @@
+{
+  "provider": "commscope-holding",
+  "sources": [
+    "commscope-holding-accesspoints-api-openapi.yml",
+    "commscope-holding-activities-api-openapi.yml",
+    "commscope-holding-authentication-api-openapi.yml",
+    "commscope-holding-clients-api-openapi.yml",
+    "commscope-holding-msp-api-openapi.yml",
+    "commscope-holding-networks-api-openapi.yml",
+    "commscope-holding-switches-api-openapi.yml",
+    "commscope-holding-venues-api-openapi.yml"
+  ],
+  "outputs": [
+    "commscope-holding-accesspoints-api-openapi.yml",
+    "commscope-holding-activities-api-openapi.yml",
+    "commscope-holding-authentication-api-openapi.yml",
+    "commscope-holding-clients-api-openapi.yml",
+    "commscope-holding-msp-api-openapi.yml",
+    "commscope-holding-networks-api-openapi.yml",
+    "commscope-holding-switches-api-openapi.yml",
+    "commscope-holding-venues-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
