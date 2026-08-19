@@ -1,0 +1,138 @@
+{
+  "item": [
+    {
+      "id": "70f5fd93-25ab-4d3f-ae4b-820f58464090",
+      "name": "Clients",
+      "description": {
+        "content": "Connected client devices.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b344b92a-d6e8-4d14-aa6a-bb5414f17a07",
+          "name": "List connected clients",
+          "request": {
+            "name": "List connected clients",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                ":tenantId",
+                "clients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb1f598e-f35a-4f55-bc43-c89e36a0453b",
+              "name": "List of connected clients.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    ":tenantId",
+                    "clients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"mac\": \"string\",\n    \"ip\": \"string\",\n    \"username\": \"string\",\n    \"ssid\": \"string\",\n    \"apSerialNumber\": \"string\",\n    \"connectedAt\": \"2019-05-04T10:36:07.004Z\"\n  },\n  {\n    \"mac\": \"string\",\n    \"ip\": \"string\",\n    \"username\": \"string\",\n    \"ssid\": \"string\",\n    \"apSerialNumber\": \"string\",\n    \"connectedAt\": \"1996-12-10T01:50:31.543Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ruckus.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c76b2c34-4367-4248-9c02-c50cc2926e1c",
+    "name": "RUCKUS One AccessPoints Clients API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The RUCKUS One API is a JSON REST surface for managing CommScope's cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.\n\nContact Support:\n Name: RUCKUS Networks Developer Central",
+      "type": "text/plain"
+    }
+  }
+}

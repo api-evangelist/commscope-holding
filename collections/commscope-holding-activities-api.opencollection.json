@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RUCKUS One AccessPoints Activities API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the status of an asynchronous request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/activity/:requestId",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Poll the status of an asynchronous request returned by a write operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

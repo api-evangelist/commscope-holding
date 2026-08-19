@@ -1,0 +1,157 @@
+{
+  "item": [
+    {
+      "id": "7bc4226c-82df-49c9-96c8-2fba60e66980",
+      "name": "Activities",
+      "description": {
+        "content": "Track asynchronous request status.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b80a4b5-5673-4f7e-aac4-066c1c0c8ae0",
+          "name": "Get the status of an asynchronous request",
+          "request": {
+            "name": "Get the status of an asynchronous request",
+            "description": {
+              "content": "Poll the status of an asynchronous request returned by a write operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                ":tenantId",
+                "activity",
+                ":requestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "requestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8593c34-df99-4b0f-8b52-c4c147b4a25e",
+              "name": "Activity status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    ":tenantId",
+                    "activity",
+                    ":requestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "requestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"string\",\n  \"status\": \"PENDING\",\n  \"startedAt\": \"1997-09-17T21:02:50.944Z\",\n  \"endedAt\": \"1989-09-25T05:35:16.465Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ruckus.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f8a4b003-1f5e-42ee-a5d0-d7edeb725866",
+    "name": "RUCKUS One AccessPoints Activities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The RUCKUS One API is a JSON REST surface for managing CommScope's cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.\n\nContact Support:\n Name: RUCKUS Networks Developer Central",
+      "type": "text/plain"
+    }
+  }
+}

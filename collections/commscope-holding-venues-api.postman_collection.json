@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "12421ef5-58e2-4d6b-a741-a8ed232e3f3c",
+      "name": "Venues",
+      "description": {
+        "content": "Physical sites that group networks and devices.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "12c5d9e8-ec5c-47af-99c5-ab755b93424c",
+          "name": "List venues",
+          "request": {
+            "name": "List venues",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                ":tenantId",
+                "venues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47ef02df-933e-409e-997d-d9b2528d7b9e",
+              "name": "List of venues.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    ":tenantId",
+                    "venues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"d3d87ad8-2fef-5d91-c5de-2d25c9b5e2a1\",\n    \"name\": \"string\",\n    \"address\": {\n      \"line1\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"postalCode\": \"string\"\n    }\n  },\n  {\n    \"id\": \"7797a971-7bca-b2bb-4ab4-6d620846c337\",\n    \"name\": \"string\",\n    \"address\": {\n      \"line1\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"postalCode\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6c50aa1-a238-487a-bb07-901f7ebb6fc2",
+          "name": "Create a venue",
+          "request": {
+            "name": "Create a venue",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                ":tenantId",
+                "venues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postalCode\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a64bdf6f-ffdc-445a-95d1-48fc297cbc23",
+              "name": "Asynchronous request accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    ":tenantId",
+                    "venues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postalCode\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ruckus.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "da98dbc9-76b7-4211-88ac-fd4dcc5ff7f8",
+    "name": "RUCKUS One AccessPoints Venues API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The RUCKUS One API is a JSON REST surface for managing CommScope's cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.\n\nContact Support:\n Name: RUCKUS Networks Developer Central",
+      "type": "text/plain"
+    }
+  }
+}

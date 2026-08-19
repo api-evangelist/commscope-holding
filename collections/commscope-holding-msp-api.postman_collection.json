@@ -1,0 +1,138 @@
+{
+  "item": [
+    {
+      "id": "5cc83f8d-1522-460e-931d-aed01a13ca67",
+      "name": "MSP",
+      "description": {
+        "content": "Managed-service-provider delegation and end-customer accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a2785ab-e761-4f65-9dc6-85d5224de9b8",
+          "name": "List MSP customers",
+          "request": {
+            "name": "List MSP customers",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "msp",
+                ":mspId",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mspId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8dbba597-029f-45db-8e0d-959778cac480",
+              "name": "List of delegated end-customer accounts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "msp",
+                    ":mspId",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mspId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"4c0d871c-e10e-579f-a3b3-019b10f2156b\",\n    \"name\": \"string\",\n    \"tenantId\": \"87e7c4b4-900f-a4d8-1e83-f9b4c524760a\"\n  },\n  {\n    \"id\": \"695d1d88-08ce-f38c-2953-ddc0ad7842e8\",\n    \"name\": \"string\",\n    \"tenantId\": \"70aaf9d1-456c-819a-260d-5169208c3b15\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ruckus.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "69934468-2a9b-44e7-a75f-58f16369ddab",
+    "name": "RUCKUS One AccessPoints MSP API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The RUCKUS One API is a JSON REST surface for managing CommScope's cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.\n\nContact Support:\n Name: RUCKUS Networks Developer Central",
+      "type": "text/plain"
+    }
+  }
+}

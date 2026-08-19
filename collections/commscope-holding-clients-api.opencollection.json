@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RUCKUS One AccessPoints Clients API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List connected clients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/clients",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List connected clients"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

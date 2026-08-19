@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "c7439ee0-55a2-47e0-9bbf-d9ee78bcb5ea",
+      "name": "Networks",
+      "description": {
+        "content": "Wi-Fi SSID and network configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71afa922-929e-4734-b532-1bf3087af88a",
+          "name": "List Wi-Fi networks",
+          "request": {
+            "name": "List Wi-Fi networks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                ":tenantId",
+                "networks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fa6ac69-c4c8-4114-a332-524ebf874411",
+              "name": "List of networks.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    ":tenantId",
+                    "networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"8f0d68c6-b307-317e-2afc-7d4399ccd670\",\n    \"name\": \"string\",\n    \"ssid\": \"string\",\n    \"security\": \"wpa3\",\n    \"venueId\": \"47277328-2703-9e61-f996-b0bb5c2c0d4d\"\n  },\n  {\n    \"id\": \"48172d1d-c762-a536-b85d-2d9e7a308992\",\n    \"name\": \"string\",\n    \"ssid\": \"string\",\n    \"security\": \"dpsk\",\n    \"venueId\": \"c427b84b-b64a-c28e-ea55-00ea9fff2e09\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9435077b-308c-4699-a390-1a472fb60abc",
+          "name": "Create a Wi-Fi network",
+          "request": {
+            "name": "Create a Wi-Fi network",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "tenant",
+                ":tenantId",
+                "networks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "tenantId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"security\": \"<string>\",\n  \"venueId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a9cfd516-500a-4e72-a158-e7798903a0cd",
+              "name": "Asynchronous request accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tenant",
+                    ":tenantId",
+                    "networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "tenantId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"security\": \"<string>\",\n  \"venueId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ruckus.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "47d15c54-3dc8-481f-8808-fed7ad59e55c",
+    "name": "RUCKUS One AccessPoints Networks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The RUCKUS One API is a JSON REST surface for managing CommScope's cloud-managed networking estate, including Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Authentication uses an OAuth2-style client credentials exchange: a tenant generates an API key in the RUCKUS One UI and exchanges the resulting client_id and client_secret for a JSON Web Token, which is then attached as a bearer token on subsequent requests. Many write operations are asynchronous and return a requestId; clients poll the activity service until SUCCESS. Read operations are always synchronous.\n\nContact Support:\n Name: RUCKUS Networks Developer Central",
+      "type": "text/plain"
+    }
+  }
+}

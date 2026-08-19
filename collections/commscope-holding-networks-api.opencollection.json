@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RUCKUS One AccessPoints Networks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Wi-Fi networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/networks",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Wi-Fi networks"
+        },
+        {
+          "info": {
+            "name": "Create a Wi-Fi network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/networks",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Wi-Fi network"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RUCKUS One AccessPoints MSP API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MSP",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List MSP customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/msp/:mspId/customers",
+            "params": [
+              {
+                "name": "mspId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List MSP customers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

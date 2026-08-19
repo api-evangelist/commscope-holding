@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RUCKUS One AccessPoints Switches API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Switches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ICX switches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ruckus.cloud/api/tenant/:tenantId/switches",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List ICX switches"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
