@@ -122,6 +122,8 @@ apis:
   humanURL: https://docs.ruckus.cloud/api
   baseURL: https://api.ruckus.cloud
   tags:
+  - Access Points
+  tags_raw:
   - AccessPoints
   properties:
   - type: OpenAPI
