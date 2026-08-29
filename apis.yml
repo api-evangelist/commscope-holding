@@ -274,6 +274,9 @@ apis:
   - type: PostmanCollectionCloud
     url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
 common:
+  - type: CapabilityMap
+    url: capabilities/commscope-holding-capability-edges.yml
+    name: CommScope Holding Business Capability Map
   - type: AgenticAccess
     url: agentic-access/commscope-holding-agentic-access.yml
   - type: DomainSecurity
