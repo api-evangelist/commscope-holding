@@ -133,7 +133,7 @@ apis:
   humanURL: https://docs.ruckus.cloud/api
   baseURL: https://api.ruckus.cloud
   tags:
-  - Access Points
+  - AccessPoints
   tags_raw:
   - AccessPoints
   properties:
