@@ -127,26 +127,6 @@ apis:
   - Managing IoT-enabled APs and downstream sensors
   - Policy and rule automation across IoT estates
   - Telemetry collection from environmental and asset sensors
-- aid: commscope-holding:commscope-holding-accesspoints-api
-  name: CommScope Holding AccessPoints API
-  description: Wi-Fi access points (APs) registered to a tenant.
-  humanURL: https://docs.ruckus.cloud/api
-  baseURL: https://api.ruckus.cloud
-  tags:
-  - Access Points
-  tags_raw:
-  - AccessPoints
-  properties:
-  - type: OpenAPI
-    url: openapi/commscope-holding-accesspoints-api-openapi.yml
-  - type: Documentation
-    url: https://docs.ruckus.cloud/api
-  - type: DeveloperCentral
-    url: https://www.ruckusnetworks.com/developer-central/
-  - type: PostmanCollection
-    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
-  - type: PostmanCollectionCloud
-    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
 - aid: commscope-holding:commscope-holding-activities-api
   name: CommScope Holding Activities API
   description: Track asynchronous request status.
@@ -265,6 +245,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/commscope-holding-venues-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ruckus.cloud/api
+  - type: DeveloperCentral
+    url: https://www.ruckusnetworks.com/developer-central/
+  - type: PostmanCollection
+    url: https://github.com/commscope-ruckus/RUCKUS-One-Postman
+  - type: PostmanCollectionCloud
+    url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
+- aid: commscope-holding:commscope-holding-access-points-api
+  name: CommScope Holding Access Points API
+  description: Wi-Fi access points (APs) registered to a tenant.
+  humanURL: https://docs.commscope.com/
+  baseURL: https://api.ruckus.cloud
+  tags:
+  - Access Points
+  properties:
+  - type: OpenAPI
+    url: openapi/commscope-holding-access-points-api-openapi.yml
   - type: Documentation
     url: https://docs.ruckus.cloud/api
   - type: DeveloperCentral
