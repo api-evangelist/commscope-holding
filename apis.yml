@@ -53,6 +53,13 @@ apis:
 - aid: commscope-holding:smartzone-public-api
   name: RUCKUS SmartZone Public API
   tags:
+  - Controller
+  - Networking
+  - REST
+  - RUCKUS
+  - SmartZone
+  - Wi-Fi
+  tags_raw:
   - Controllers
   - Networking
   - REST
@@ -106,6 +113,12 @@ apis:
 - aid: commscope-holding:ruckus-iot-api
   name: RUCKUS IoT Platform API
   tags:
+  - Controller
+  - IoT
+  - Networking
+  - REST
+  - RUCKUS
+  tags_raw:
   - Controllers
   - IoT
   - Networking
