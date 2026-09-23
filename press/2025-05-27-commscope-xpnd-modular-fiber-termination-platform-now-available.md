@@ -1,7 +1,9 @@
 ---
 title: CommScope XPND Modular Fiber Termination Platform Now Available
 url: https://www.commscope.com/press-release-archive/2025/commscope-xpnd-modular-fiber-termination-platform-now-available/
-date: '2025-05-27'
+published: ''
+date_basis: harvested
+harvested: '2025-05-27'
 author: ''
 feed_url: http://www.commscope.com/press-releases/rss
 ---

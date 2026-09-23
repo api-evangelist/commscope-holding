@@ -1,7 +1,9 @@
 ---
 title: CommScope Reports Third Quarter 2025 Results
 url: https://www.commscope.com/press-release-archive/2025/commscope-reports-third-quarter-2025-results/
-date: '2025-10-30'
+published: ''
+date_basis: harvested
+harvested: '2025-10-30'
 author: ''
 feed_url: http://www.commscope.com/press-releases/rss
 ---

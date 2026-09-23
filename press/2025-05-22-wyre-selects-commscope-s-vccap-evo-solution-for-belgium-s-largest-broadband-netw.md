@@ -2,7 +2,9 @@
 title: Wyre Selects CommScope’s vCCAP Evo Solution for Belgium’s Largest Broadband
   Network
 url: https://www.commscope.com/press-release-archive/2025/wyre-selects-commscopes-vccap-evo-solution-for-belgiums-largest-broadband-network/
-date: '2025-05-22'
+published: ''
+date_basis: harvested
+harvested: '2025-05-22'
 author: ''
 feed_url: http://www.commscope.com/press-releases/rss
 ---

@@ -1,7 +1,9 @@
 ---
 title: CommScope Announces Strategic Partner Alliance Agreement with DvSum
 url: https://www.commscope.com/press-release-archive/2025/commscope-announces-strategic-partner-alliance-agreement-with-dvsum/
-date: '2025-07-22'
+published: ''
+date_basis: harvested
+harvested: '2025-07-22'
 author: ''
 feed_url: http://www.commscope.com/press-releases/rss
 ---

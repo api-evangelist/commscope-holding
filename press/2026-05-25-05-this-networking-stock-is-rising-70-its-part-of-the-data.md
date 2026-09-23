@@ -1,7 +1,9 @@
 ---
 title: This Networking Stock Is Rising 70%. It's Part of the Data- ...
 url: https://www.barrons.com/articles/commscope-stock-amphenol-ai-data-center-4bac39e5
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CommScope Holding" press release artificial intelligence'
 position: 5
 source: serpapi-google

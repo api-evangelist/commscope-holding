@@ -1,7 +1,9 @@
 ---
 title: CommScope debuts AI-powered Wi-Fi 7 access point for ...
 url: https://siliconangle.com/2023/10/10/commscope-debuts-ai-powered-wi-fi-7-access-point-enterprises/
-date: '2026-05-25'
+published: '2023-10-10'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"CommScope Holding" press release artificial intelligence'
 position: 3
 source: serpapi-google

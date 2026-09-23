@@ -2,7 +2,9 @@
 title: CommScope Wins Platinum & Gold Innovators Awards from Cabling Installation
   & Maintenance Magazine
 url: https://www.commscope.com/press-release-archive/2025/commscope-wins-platinum-gold-innovators-awards-from-cabling-installation-maintenance-magazine/
-date: '2025-12-05'
+published: ''
+date_basis: harvested
+harvested: '2025-12-05'
 author: ''
 feed_url: http://www.commscope.com/press-releases/rss
 ---

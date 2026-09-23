@@ -1,14 +1,7 @@
 {
   "provider": "commscope-holding",
   "sources": [
-    "commscope-holding-accesspoints-api-openapi.yml",
-    "commscope-holding-activities-api-openapi.yml",
-    "commscope-holding-authentication-api-openapi.yml",
-    "commscope-holding-clients-api-openapi.yml",
-    "commscope-holding-msp-api-openapi.yml",
-    "commscope-holding-networks-api-openapi.yml",
-    "commscope-holding-switches-api-openapi.yml",
-    "commscope-holding-venues-api-openapi.yml"
+    "_original/ruckus-one-api-openapi.yml"
   ],
   "outputs": [
     "commscope-holding-accesspoints-api-openapi.yml",
@@ -20,9 +13,25 @@
     "commscope-holding-switches-api-openapi.yml",
     "commscope-holding-venues-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ruckus-one-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: commscope-holding-access-points-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 11 total)"
+  ],
+  "skipped": [
+    "commscope-holding-access-points-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "commscope-holding-activities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "commscope-holding-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "commscope-holding-clients-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "commscope-holding-msp-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "commscope-holding-networks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "commscope-holding-switches-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "commscope-holding-venues-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

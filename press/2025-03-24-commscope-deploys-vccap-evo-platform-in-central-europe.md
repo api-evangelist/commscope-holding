@@ -1,7 +1,9 @@
 ---
 title: CommScope Deploys vCCAP Evo Platform in Central Europe
 url: https://www.commscope.com/press-release-archive/2025/commscope-deploys-vccap-evo-platform-in-central-europe/
-date: '2025-03-24'
+published: ''
+date_basis: harvested
+harvested: '2025-03-24'
 author: ''
 feed_url: http://www.commscope.com/press-releases/rss
 ---

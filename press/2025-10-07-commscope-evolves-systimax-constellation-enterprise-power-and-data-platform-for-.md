@@ -2,7 +2,9 @@
 title: CommScope Evolves SYSTIMAX Constellation Enterprise Power and Data Platform
   for the Global Market
 url: https://www.commscope.com/press-release-archive/2025/commscope-evolves-systimax-constellation-enterprise-power-and-data-platform-for-the-global-market/
-date: '2025-10-07'
+published: ''
+date_basis: harvested
+harvested: '2025-10-07'
 author: ''
 feed_url: http://www.commscope.com/press-releases/rss
 ---

@@ -1,7 +1,9 @@
 ---
 title: Commscope Holding Company (COMM-Q) Press Releases
 url: https://www.theglobeandmail.com/investing/markets/stocks/COMM-Q/pressreleases/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CommScope Holding" press release artificial intelligence'
 position: 4
 source: serpapi-google

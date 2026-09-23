@@ -1,7 +1,9 @@
 ---
 title: CommScope to Release Third Quarter 2025 Financial Results on October 30
 url: https://www.commscope.com/press-release-archive/2025/commscope-to-release-third-quarter-2025-financial-results-on-october-30/
-date: '2025-10-08'
+published: ''
+date_basis: harvested
+harvested: '2025-10-08'
 author: ''
 feed_url: http://www.commscope.com/press-releases/rss
 ---
