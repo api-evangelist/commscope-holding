@@ -37,6 +37,14 @@ paths:
                 items:
                   $ref: '#/components/schemas/Switch'
 components:
+  parameters:
+    tenantId:
+      name: tenantId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
   schemas:
     Switch:
       type: object
@@ -54,14 +62,6 @@ components:
           - online
           - offline
           - provisioning
-  parameters:
-    tenantId:
-      name: tenantId
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     BearerAuth:
       type: http
