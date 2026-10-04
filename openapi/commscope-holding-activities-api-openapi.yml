@@ -41,6 +41,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Activity'
 components:
+  parameters:
+    tenantId:
+      name: tenantId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
   schemas:
     Activity:
       type: object
@@ -60,14 +68,6 @@ components:
         endedAt:
           type: string
           format: date-time
-  parameters:
-    tenantId:
-      name: tenantId
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     BearerAuth:
       type: http

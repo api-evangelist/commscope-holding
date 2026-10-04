@@ -58,6 +58,12 @@ paths:
                 $ref: '#/components/schemas/AsyncResponse'
 components:
   schemas:
+    AsyncResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: Identifier used to poll the activity service for completion.
     Venue:
       type: object
       properties:
@@ -77,12 +83,6 @@ components:
               type: string
             postalCode:
               type: string
-    AsyncResponse:
-      type: object
-      properties:
-        requestId:
-          type: string
-          description: Identifier used to poll the activity service for completion.
   parameters:
     tenantId:
       name: tenantId
