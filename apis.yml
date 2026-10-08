@@ -285,6 +285,12 @@ apis:
   - type: PostmanCollectionCloud
     url: https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman
 common:
+  - type: Plans
+    url: plans/commscope-holding-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/commscope-holding-rate-limits.yml
+  - type: FinOps
+    url: finops/commscope-holding-finops.yml
   - type: CapabilityMap
     url: capabilities/commscope-holding-capability-edges.yml
     name: CommScope Holding Business Capability Map
