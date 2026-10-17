@@ -37,14 +37,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Client'
 components:
-  parameters:
-    tenantId:
-      name: tenantId
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
   schemas:
     Client:
       type: object
@@ -62,6 +54,14 @@ components:
         connectedAt:
           type: string
           format: date-time
+  parameters:
+    tenantId:
+      name: tenantId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     BearerAuth:
       type: http

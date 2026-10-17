@@ -37,14 +37,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/AccessPoint'
 components:
-  parameters:
-    tenantId:
-      name: tenantId
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
   schemas:
     AccessPoint:
       type: object
@@ -62,6 +54,14 @@ components:
           - online
           - offline
           - provisioning
+  parameters:
+    tenantId:
+      name: tenantId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     BearerAuth:
       type: http
