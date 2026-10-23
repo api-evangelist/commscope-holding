@@ -97,3 +97,16 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: commscope-holding-ansible-ansible-galaxy
+  label: Ansible (ansible-galaxy)
+  partner: ansible
+  partner_name: Ansible (ansible-galaxy)
+  category: configuration-management content listing (Ansible collection)
+  type: marketplace
+  marketplace: ansible-galaxy
+  channel: partner-built
+  evidence: https://galaxy.ansible.com/ui/repo/published/commscope/icx/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
