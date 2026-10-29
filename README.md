@@ -1,4 +1,4 @@
-# CommScope Holding (commscope-holding)
+# CommScope Holding
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,138 +66,150 @@
 
 CommScope is a global provider of communications-network infrastructure, including fiber-optic and copper cabling, antenna systems, and cloud- managed enterprise networking. Following its acquisitions of ARRIS (2019) and the Ruckus Wi-Fi business, CommScope's primary public developer surface is the RUCKUS One API, a JSON REST surface for managing Wi-Fi networks, ICX switches, access points, venues, and managed-service-provider delegation. Companion product lines (RUCKUS Cloud, RUCKUS IoT, ICX RESTCONF, SmartZone, Cloudpath, Unleashed Multi- Site Manager, SmartCell Insight) ship their own REST/RESTCONF APIs and are documented through the CommScope and RUCKUS Networks developer centers.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/commscope-holding/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/commscope-holding/refs/heads/main/apis.yml)
+**Areas:** Access Points · Cabling · Connectivity · ICX Switches · Infrastructure · Networking · RUCKUS · Wi-Fi · Fortune 1000
 
-## Scope
+## CommScope Holding on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for CommScope Holding is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/commscope-holding/](https://apis.io/providers/commscope-holding/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (11)
 
-- Access Points
-- Cabling
-- Connectivity
-- ICX Switches
-- Infrastructure
-- Networking
-- RUCKUS
-- Wi-Fi
+- [RUCKUS SmartZone Public API](https://apis.io/apis/commscope-holding/smartzone-public-api/) — REST and OpenAPI surface for managing on-premises SmartZone controllers (SZ144, SZ300, vSZ-E, vSZ-H) and ICX Management. Used to integrate SmartZone with…
+- [RUCKUS ICX RESTCONF API](https://apis.io/apis/commscope-holding/icx-restconf-api/) — RESTCONF API for ICX switches running FastIron 09.0.10/10.0.20 (GA). Models are YANG-based and follow standard RESTCONF semantics. Covers ICX 7150, 7250,…
+- [RUCKUS IoT Platform API](https://apis.io/apis/commscope-holding/ruckus-iot-api/) — REST API (v2.2) for the RUCKUS IoT Platform Controller. Manages the IoT controller, IoT-enabled access points, and downstream devices and sensors.
+- [CommScope Holding Activities API](https://apis.io/apis/commscope-holding/commscope-holding-activities-api/) — Track asynchronous request status.
+- [CommScope Holding Authentication API](https://apis.io/apis/commscope-holding/commscope-holding-authentication-api/) — OAuth2 client-credentials token exchange.
+- [CommScope Holding Clients API](https://apis.io/apis/commscope-holding/commscope-holding-clients-api/) — Connected client devices.
+- [CommScope Holding MSP API](https://apis.io/apis/commscope-holding/commscope-holding-msp-api/) — Managed-service-provider delegation and end-customer accounts.
+- [CommScope Holding Networks API](https://apis.io/apis/commscope-holding/commscope-holding-networks-api/) — Wi-Fi SSID and network configuration.
+- [CommScope Holding Switches API](https://apis.io/apis/commscope-holding/commscope-holding-switches-api/) — ICX switches managed via RUCKUS One.
+- [CommScope Holding Venues API](https://apis.io/apis/commscope-holding/commscope-holding-venues-api/) — Physical sites that group networks and devices.
+- [CommScope Holding Access Points API](https://apis.io/apis/commscope-holding/commscope-holding-access-points-api/) — Wi-Fi access points (APs) registered to a tenant.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-15
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### RUCKUS One API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-JSON REST API for the RUCKUS One cloud-managed networking platform. Hosted on three regional bases (api.ruckus.cloud, api.eu.ruckus.cloud, api.asia.ruckus.cloud). Authentication is OAuth2 client credentials: a tenant generates an API key in the RUCKUS One UI and exchanges client_id/client_secret for a JSON Web Token bearer credential. Many write operations are asynchronous and return a requestId; the caller polls the activity service until SUCCESS. Supports venues, Wi-Fi networks (SSIDs), access points, ICX switches, connected clients, DPSK pools, resident portals, and MSP delegation.
+- [Commscope Holding Agentic Access](https://apis.io/agentic-access/commscope-holding/commscope-holding-agentic-access/)
 
-- **Human URL:** [https://docs.ruckus.cloud/api](https://docs.ruckus.cloud/api)
-- **Base URL:** `https://api.ruckus.cloud`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Access Points
-- Cloud Management
-- ICX Switches
-- Networking
-- REST
-- RUCKUS
-- Wi-Fi
+- [RUCKUS One Network](https://apis.io/schemas/commscope-holding/ruckus-one-network/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://docs.ruckus.cloud/api)
-- [Developer Central](https://www.ruckusnetworks.com/developer-central/)
-- [Postman Collection](https://github.com/commscope-ruckus/RUCKUS-One-Postman) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Postman Collection Cloud](https://github.com/commscope-ruckus/RUCKUS-Cloud-Postman)
-- [OpenAPI](openapi/ruckus-one-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ruckus-one-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ruckus-one-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Linked-data contexts for the provider's vocabulary.
 
-### RUCKUS SmartZone Public API
+- [Commscope Holding Context](https://apis.io/jsonld/commscope-holding/commscope-holding-context/)
 
-REST and OpenAPI surface for managing on-premises SmartZone controllers (SZ144, SZ300, vSZ-E, vSZ-H) and ICX Management. Used to integrate SmartZone with NMS, monitoring, and provisioning pipelines. Authentication and base URL are tenant-specific to the controller deployment.
+#### Collections (9)
 
-- **Human URL:** [https://docs.commscope.com/](https://docs.commscope.com/)
+Postman and Open Collection request collections.
 
-#### Tags
+- [RUCKUS One AccessPoints API](https://apis.io/collections/commscope-holding/open-commscope-holding-accesspoints-api/)
+- [RUCKUS One AccessPoints Activities API](https://apis.io/collections/commscope-holding/open-commscope-holding-activities-api/)
+- [RUCKUS One AccessPoints Authentication API](https://apis.io/collections/commscope-holding/open-commscope-holding-authentication-api/)
+- [RUCKUS One AccessPoints Clients API](https://apis.io/collections/commscope-holding/open-commscope-holding-clients-api/)
+- [RUCKUS One AccessPoints MSP API](https://apis.io/collections/commscope-holding/open-commscope-holding-msp-api/)
+- [RUCKUS One AccessPoints Networks API](https://apis.io/collections/commscope-holding/open-commscope-holding-networks-api/)
+- [RUCKUS One AccessPoints Switches API](https://apis.io/collections/commscope-holding/open-commscope-holding-switches-api/)
+- [RUCKUS One AccessPoints Venues API](https://apis.io/collections/commscope-holding/open-commscope-holding-venues-api/)
+- [RUCKUS One API](https://apis.io/collections/commscope-holding/open-ruckus-one-api/)
 
-- Controllers
-- Networking
-- REST
-- RUCKUS
-- SmartZone
-- Wi-Fi
+#### Governance rules (2)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://docs.commscope.com/)
-- [Developer Central](https://www.ruckusnetworks.com/developer-central/)
-- [Postman Collection](collections/ruckus-one-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ruckus-one-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [CommScope Holding — jsonschema rules](https://apis.io/rules/commscope-holding/commscope-holding-jsonschema-spectral-rules/)
+- [CommScope Holding API Rules](https://apis.io/rules/commscope-holding/commscope-holding-rules/)
 
-### RUCKUS ICX RESTCONF API
+#### Security (2)
 
-RESTCONF API for ICX switches running FastIron 09.0.10/10.0.20 (GA). Models are YANG-based and follow standard RESTCONF semantics. Covers ICX 7150, 7250, 7450, 7550, 7650, 7850, 8200.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.ruckusnetworks.com/developer-central/](https://www.ruckusnetworks.com/developer-central/)
+- [Commscope Holding Authentication](https://apis.io/security/commscope-holding/commscope-holding-authentication/)
+- [Commscope Holding Domain Security](https://apis.io/security/commscope-holding/commscope-holding-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- ICX
-- Networking
-- RESTCONF
-- RUCKUS
-- Switches
-- YANG
+Published plans, tiers and prices.
 
-#### Properties
+- [Commscope Holding Plans Pricing](https://apis.io/plans/commscope-holding/commscope-holding-plans-pricing/)
 
-- [Documentation](https://www.ruckusnetworks.com/developer-central/)
-- [Postman Collection](collections/ruckus-one-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ruckus-one-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### RUCKUS IoT Platform API
+Published request limits.
 
-REST API (v2.2) for the RUCKUS IoT Platform Controller. Manages the IoT controller, IoT-enabled access points, and downstream devices and sensors.
+- [Commscope Holding Rate Limits](https://apis.io/rate-limits/commscope-holding/commscope-holding-rate-limits/)
 
-- **Human URL:** [https://www.ruckusnetworks.com/developer-central/](https://www.ruckusnetworks.com/developer-central/)
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Controllers
-- IoT
-- Networking
-- REST
-- RUCKUS
+- [Commscope Holding Finops](https://apis.io/finops/commscope-holding/commscope-holding-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://www.ruckusnetworks.com/developer-central/)
-- [Postman Collection](collections/ruckus-one-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ruckus-one-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/commscope)
 - [Website](https://www.commscope.com/)
-- [Ruckus Networks](https://www.ruckusnetworks.com/)
-- [Developer Central](https://www.ruckusnetworks.com/developer-central/)
-- [Product Documentation](https://docs.commscope.com/)
-- [Ruckus Cloud Docs](https://docs.ruckus.cloud/)
-- [Git Hub](https://github.com/commscope-ruckus)
-- [Investors](https://ir.commscope.com/)
-- [Privacy](https://www.commscope.com/privacy-statement/)
-- [JSON-LD](json-ld/commscope-holding-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/ruckus-one-network-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Spectral Rules](rules/commscope-holding-rules.yml) — [Spectral](https://docs.stoplight.io/docs/spectral)
+- [Blog](https://www.commscope.com/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 30.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 49.6 |
+| Contract governance | 13.6 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 15.8 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/commscope-holding/](https://apis.io/providers/commscope-holding/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CommScope Holding: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/commscope-holding/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
